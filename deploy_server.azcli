@@ -29,6 +29,10 @@ az network bastion create --resource-group jupyter-lab-rg \
     --scale-units 2 \
     --location eastus
 
+# Create a network security group
+az network nsg create --resource-group jupyter-lab-rg \
+    --name jupyterlabNSG
+
 # Create nsg rule
 az network nsg rule create --resource-group jupyter-lab-rg \
     --nsg-name jupyterlabNSG \
