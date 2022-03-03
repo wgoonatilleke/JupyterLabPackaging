@@ -1,0 +1,3 @@
+# Create a resource group
+az group create --name jupyter-lab-rg \
+    --location eastus
