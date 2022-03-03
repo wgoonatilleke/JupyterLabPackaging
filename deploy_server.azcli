@@ -28,3 +28,33 @@ az network bastion create --resource-group jupyter-lab-rg \
     --vnet-name jupyterlabvnet \
     --scale-units 2 \
     --location eastus
+
+# Create nsg rule
+az network nsg rule create --resource-group jupyter-lab-rg \
+    --nsg-name jupyterlabNSG \
+    --name jupyterlabNSGRuleHTTP \
+    --protocol '*' \
+    --direction Inbound \
+    --source-address-prefixes '*' \
+    --source-port-ranges '*' \
+    --destination-address-prefixes '*' \
+    --destination-port-ranges 80 \
+    --access Allow \
+    --priority 200
+
+# Create NIC
+az network nic create --resource-group jupyter-lab-rg \
+    --name nicJLS \
+    --vnet-name jupyterlabvnet \
+    --subnet jupyterlabsubnet \
+    --network-security-group jupyterlabNSG
+
+# Create the VMs
+az vm create --resource-group jupyter-lab-rg \
+    --name JLS \
+    --nics nicJLS \
+    --os-disk-name diskJLS \
+    --image Win2019Datacenter \
+    --admin-username waltergo \
+    --zone 1 \
+    --no-wait
