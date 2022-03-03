@@ -9,3 +9,14 @@ az network vnet create --resource-group jupyter-lab-rg \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name jupyterlabsubnet \
     --subnet-prefixes 10.1.0.0/24
+
+# Create a public IP address
+az network public-ip create --resource-group jupyter-lab-rg \
+    --name JupyterLabBastionIP \
+    --sku Standard
+
+# Create Azure Bastion subnet
+az network vnet subnet create --resource-group jupyter-lab-rg \
+    --name AzureBastionSubnet \
+    --vnet-name jupyterlabvnet \
+    --address-prefixes 10.1.1.0/24
