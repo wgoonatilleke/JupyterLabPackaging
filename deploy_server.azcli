@@ -20,3 +20,11 @@ az network vnet subnet create --resource-group jupyter-lab-rg \
     --name AzureBastionSubnet \
     --vnet-name jupyterlabvnet \
     --address-prefixes 10.1.1.0/24
+
+# Create an Azure Bastion host
+az network bastion create --resource-group jupyter-lab-rg \
+    --name JupyterLabBastionHost \
+    --public-ip-address JupyterLabBastionIP \
+    --vnet-name jupyterlabvnet \
+    --scale-units 2 \
+    --location eastus
