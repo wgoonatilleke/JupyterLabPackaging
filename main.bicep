@@ -1,5 +1,5 @@
 
-// targetScope = 'subscription'
+targetScope = 'subscription'
 
 param subscriptionId string = subscription().subscriptionId
 param location string = 'eastus'
