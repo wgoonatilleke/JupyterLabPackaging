@@ -1,3 +1,4 @@
+
 targetScope = 'subscription'
 
 param subscriptionId string = subscription().subscriptionId
@@ -11,8 +12,4 @@ module rg 'modules/rg.bicep' = {
     name: targetResourceGroup
     location: location
   }
-}
-
-module storage 'modules/storage.bicep' = {
-
 }
