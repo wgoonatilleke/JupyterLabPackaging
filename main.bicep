@@ -4,8 +4,8 @@ targetScope = 'subscription'
 param subscriptionId string = subscription().subscriptionId
 param location string = 'eastus'
 param targetResourceGroup string = 'testRG'
-param JupyterLabVnet string
-param JupyterLabSubnet string
+param JupyterLabVnet string = 'JupyterLabVnet'
+param JupyterLabSubnet string = 'JupyterLabSubnet'
 
 module rg 'modules/rg.bicep' = {
   name: 'resourceGroup-deployment'
