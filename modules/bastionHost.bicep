@@ -11,7 +11,7 @@ param vnetIpPrefix string = '10.0.0.0/16'
   'new'
   'existing'
 ])
-param vnetNewOrExisting string = 'new'
+param vnetNewOrExisting string = 'existing'
 
 @description('Bastion subnet IP prefix MUST be within vnet IP prefix address space')
 param bastionSubnetIpPrefix string = '10.0.1.0/27'
