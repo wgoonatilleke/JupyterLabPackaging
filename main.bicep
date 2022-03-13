@@ -6,6 +6,7 @@ param location string = 'eastus'
 param targetResourceGroup string = 'testRG'
 param JupyterLabVnet string = 'JupyterLabVnet'
 param JupyterLabSubnet string = 'JupyterLabSubnet'
+param JupyterLabBastionIP string = 'JupyterLabBastionIP'
 
 module rg 'modules/rg.bicep' = {
   name: 'resourceGroup-deployment'
@@ -22,6 +23,15 @@ module virualNetowrk 'modules/virtualNetwork.bicep' = {
   params: {
     JupyterLabVnet: JupyterLabVnet
     JupyterLabSubnet: JupyterLabSubnet
+    location: location
+  }
+}
+
+module publicIp 'modules/publicIpAddress.bicep' = {
+  name: 'publicIP-deployment'
+  scope: resourceGroup(targetResourceGroup)
+  params: {
+    JupyterLabBastionIP : JupyterLabBastionIP
     location: location
   }
 }
