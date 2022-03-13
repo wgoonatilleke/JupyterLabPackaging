@@ -1,3 +1,5 @@
+// https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/azure-bastion/main.bicep
+
 @description('Name of new or existing vnet to which Azure Bastion should be deployed')
 param vnetName string = 'JupyterLabVnet'
 
