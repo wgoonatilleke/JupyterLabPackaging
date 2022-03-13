@@ -7,8 +7,6 @@ param targetResourceGroup string = 'testRG'
 param JupyterLabVnet string = 'JupyterLabVnet'
 param JupyterLabSubnet string = 'JupyterLabSubnet'
 param JupyterLabBastionIP string = 'JupyterLabBastionIP'
-param JupyterLabBastionHost string = 'JupyterLabBastionHost'
-param AzureBastionSubnet string = 'AzureBastionSubnet'
 
 module rg 'modules/rg.bicep' = {
   name: 'resourceGroup-deployment'
@@ -25,7 +23,6 @@ module virualNetowrk 'modules/virtualNetwork.bicep' = {
   params: {
     JupyterLabVnet: JupyterLabVnet
     JupyterLabSubnet: JupyterLabSubnet
-    AzureBastionSubnet: AzureBastionSubnet
     location: location
   }
 }
@@ -35,15 +32,6 @@ module publicIp 'modules/publicIpAddress.bicep' = {
   scope: resourceGroup(targetResourceGroup)
   params: {
     JupyterLabBastionIP : JupyterLabBastionIP
-    location: location
-  }
-}
-
-module bastionHost 'modules/bastionHost.bicep' = {
-  name: 'bastionHost-deployment'
-  scope: resourceGroup(targetResourceGroup)
-  params: {
-    JupyterLabBastionHost: JupyterLabBastionHost
     location: location
   }
 }
