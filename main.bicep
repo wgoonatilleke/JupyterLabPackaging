@@ -8,6 +8,7 @@ param JupyterLabVnet string = 'JupyterLabVnet'
 param JupyterLabSubnet string = 'JupyterLabSubnet'
 param JupyterLabBastionIP string = 'JupyterLabBastionIP'
 param JupyterLabBastionHost string = 'JupyterLabBastionHost'
+param AzureBastionSubnet string = 'AzureBastionSubnet'
 
 module rg 'modules/rg.bicep' = {
   name: 'resourceGroup-deployment'
@@ -24,6 +25,7 @@ module virualNetowrk 'modules/virtualNetwork.bicep' = {
   params: {
     JupyterLabVnet: JupyterLabVnet
     JupyterLabSubnet: JupyterLabSubnet
+    AzureBastionSubnet: AzureBastionSubnet
     location: location
   }
 }
