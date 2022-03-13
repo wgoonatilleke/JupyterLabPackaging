@@ -6,6 +6,6 @@ resource publicIP 'Microsoft.Network/publicIPAddresses@2021-05-01' = {
   name: JupyterLabBastionIP
   location: location
   properties: {
-    publicIPAllocationMethod: 'Dynamic'
+    publicIPAllocationMethod: 'Static'
   }
 }
