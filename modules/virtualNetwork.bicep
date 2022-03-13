@@ -12,13 +12,5 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
         '10.0.0.0/16'
       ]
     }
-    subnets: [
-      {
-        name: JupyterLabSubnet
-        properties: {
-          addressPrefix: '10.0.0.0/24'
-        }
-      }
-    ]
   }
 }
