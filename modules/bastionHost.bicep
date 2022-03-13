@@ -1,13 +1,9 @@
 param JupyterLabBastionHost string
 param location string
-param JupyterLabVnet string
 
 resource bastionHost 'Microsoft.Network/bastionHosts@2021-05-01' = {
   name: JupyterLabBastionHost
   location: location
-  dependsOn: [
-    JupyterLabVnet
-  ]
   tags: {
     tagName1: 'tagValue1'
     tagName2: 'tagValue2'
@@ -32,7 +28,7 @@ resource bastionHost 'Microsoft.Network/bastionHosts@2021-05-01' = {
             id: 'JupyterLabBastionIP'
           }
           subnet: {
-            id: 
+            id: 'AzureBastionSubnet'
           }
         }
       }
