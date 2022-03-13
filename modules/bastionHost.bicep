@@ -1,7 +1,7 @@
 param JupyterLabBastionHost string
 param location string
 
-resource symbolicname 'Microsoft.Network/bastionHosts@2021-05-01' = {
+resource bastionHost 'Microsoft.Network/bastionHosts@2021-05-01' = {
   name: JupyterLabBastionHost
   location: location
   tags: {
