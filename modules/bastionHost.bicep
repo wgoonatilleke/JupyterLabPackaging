@@ -15,7 +15,7 @@ param vnetNewOrExisting string = 'new'
 param bastionSubnetIpPrefix string = '10.1.1.0/27'
 
 @description('Name of Azure Bastion resource')
-param bastionHostName string
+param bastionHostName string = 'JupyterLabBastionHost'
 
 @description('Azure region for Bastion and virtual network')
 param location string = resourceGroup().location
