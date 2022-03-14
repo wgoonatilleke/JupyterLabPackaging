@@ -10,7 +10,7 @@ param adminPassword string
 param dnsLabelPrefix string = toLower('${vmName}-${uniqueString(resourceGroup().id, vmName)}')
 
 @description('Name for the Public IP used to access the Virtual Machine.')
-param publicIpName string = 'myPublicIP'
+param publicIpName string = 'JupyterLabPublicIP'
 
 @description('Allocation method for the Public IP used to access the Virtual Machine.')
 @allowed([
@@ -55,7 +55,7 @@ var addressPrefix = '10.0.0.0/16'
 var subnetName = 'JupyterLabSubnet'
 var subnetPrefix = '10.0.0.0/24'
 var virtualNetworkName = 'JupyterLabVnet'
-var networkSecurityGroupName = 'default-NSG'
+var networkSecurityGroupName = 'JupyterLabNSG'
 
 resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: storageAccountName

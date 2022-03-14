@@ -22,7 +22,7 @@ param bastionHostName string = 'JupyterLabBastionHost'
 @description('Azure region for Bastion and virtual network')
 param location string = resourceGroup().location
 
-var publicIpAddressName = '${bastionHostName}-pip'
+var publicIpAddressName = 'JupyterLabBastionHostPublicIP'
 var bastionSubnetName = 'AzureBastionSubnet'
 
 resource publicIp 'Microsoft.Network/publicIPAddresses@2021-05-01' = {
