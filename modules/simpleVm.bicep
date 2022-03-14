@@ -166,6 +166,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = {
         version: 'latest'
       }
       osDisk: {
+        name: 'JupyterLabDisk1'
         createOption: 'FromImage'
         managedDisk: {
           storageAccountType: 'StandardSSD_LRS'
@@ -173,6 +174,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' = {
       }
       dataDisks: [
         {
+          name: 'JupyterLabDisk2'
           diskSizeGB: 1023
           lun: 0
           createOption: 'Empty'
