@@ -47,10 +47,10 @@ param vmSize string = 'Standard_D2s_v3'
 param location string = resourceGroup().location
 
 @description('Name of the virtual machine.')
-param vmName string = 'JLS'
+param vmName string = 'JupyterLab'
 
 var storageAccountName = 'bootdiags${uniqueString(resourceGroup().id)}'
-var nicName = 'myVMNic'
+var nicName = 'JupyterLabNic'
 var addressPrefix = '10.0.0.0/16'
 var subnetName = 'JupyterLabSubnet'
 var subnetPrefix = '10.0.0.0/24'
